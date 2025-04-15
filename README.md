@@ -38,7 +38,7 @@ cp ~/.ssh/id_rsa.pub ./id_rsa.pub
 
 Es recomendable eliminarla una vez se haya copiado al contenedor, aunque esto implicaría volver a copiarla si se quisieran regenerar los servicios.
 
-Para conectarnos desde el anfitrión, simplemente tendremo que hacerlo con ssh:
+Para conectarnos desde el anfitrión, simplemente tendremo que hacerlo con ssh: (El puerto en el corre por defecto SSH es el 22). 
 
 ```bash
 ssh -i ~/.ssh/id_rsa laravel@localhost -p 2222
