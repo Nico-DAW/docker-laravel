@@ -21,7 +21,26 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
+    
+    /**
+     * Comprueba si tiene rol administrador (taller)
+     * 
+     * @return boolean
+     */
+    public function isAdmin() : boolean
+        {
+            return $this->role === 'taller';
+        }
+    public static function roles() : array
+        {
+            return [
+                'cliente' => 'Cliente',
+                'taller' => 'Taller',
+            ];
+        }
+
 
     /**
      * The attributes that should be hidden for serialization.
