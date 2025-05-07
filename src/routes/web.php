@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use app\Http\Middleware\AdminMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
