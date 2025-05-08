@@ -17,7 +17,7 @@ class Citas extends Model
     
     // Trabajando aquí... 
     protected $fillable = [
-        'cliente',
+        'cliente_id',
         'marca',
         'modelo',
         'matricula',
@@ -25,4 +25,20 @@ class Citas extends Model
         'hora',
         'duracion',
     ];
+
+    public static function rules($userId = null)
+    {
+        return [
+            'cliente_id' => 'required|exists:users,id',
+        ];
+    }
+
+    /**
+     * Relación: una cita pertenece a un usuario (cliente).
+    */
+    public function cliente(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'cliente_id');
+    }
+
 }

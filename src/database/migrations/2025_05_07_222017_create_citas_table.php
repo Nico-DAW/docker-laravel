@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cliente_id')->constrained('users')->onDelete('cascade');
+            $table->string('marca');
+            $table->string('modelo');
+            $table->string('matricula');
+            $table->date('fecha');
+            $table->time('hora');
+            $table->integer('duracion');
             $table->timestamps();
         });
     }
