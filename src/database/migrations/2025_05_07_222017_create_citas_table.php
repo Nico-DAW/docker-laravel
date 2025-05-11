@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('marca');
             $table->string('modelo');
             $table->string('matricula');
-            $table->date('fecha');
-            $table->time('hora');
-            $table->integer('duracion');
+            $table->date('fecha')->nullable();
+            $table->time('hora')->nullable();
+            $table->integer('duracion')->nullable();
             $table->timestamps();
         });
     }

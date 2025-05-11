@@ -12,6 +12,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("Estas en creación de citas") }}
+                    {{-- Include the register form --}}
+                    @include('components.forms.citas')
                 </div>
             </div>
         </div>

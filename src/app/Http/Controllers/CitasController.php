@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Models\User;
+use App\Models\User;
+use App\Models\Citas;
 
 class CitasController extends Controller
 {
@@ -13,7 +14,17 @@ class CitasController extends Controller
      */
     public function index()
     {
-        //
+        /*
+        if (auth()->user()->role === 'cliente') {
+            $listacitas = Citas::where('cliente_id', auth()->user()->id)->get();
+        } elseif (auth()->user()->role === 'admin') {
+            $listacitas = Citas::all();
+        } else {
+            $listacitas = collect(); // empty collection
+        }
+    
+        return view('citas.index', compact('listacitas'));
+        */
     }
 
     /**

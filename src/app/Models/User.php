@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'id',
         'email',
         'password',
         'role',
@@ -29,7 +29,7 @@ class User extends Authenticatable
      * 
      * @return boolean
      */
-    public function isAdmin() : boolean
+    public function isAdmin() : bool
         {
             return $this->role === 'taller';
         }
