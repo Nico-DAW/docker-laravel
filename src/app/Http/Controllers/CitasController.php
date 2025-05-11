@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Citas;
@@ -38,9 +41,26 @@ class CitasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         //
+        $request->validate([
+            'marca' => ['required', 'string', 'max:255'],
+            'modelo' => ['required', 'string', 'max:255'],
+            'matricula' => ['required', 'string', 'max:255'],
+        ]);
+
+        $cita = Citas::create([
+            'cliente_id'=>auth()->user()->id,
+            'marca' => $request->marca,
+            'modelo' => $request->modelo,
+            'matricula' => $request->matricula,
+            'fecha'=> null,
+            'hora'=> null,
+            'duracion'=> null,
+        ]);
+
+        return redirect()->route('dashboard');
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\CitasController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,6 +12,8 @@ Route::get('/', function () {
 Route::get('/citas/create', function () {
     return view('citas.create');
 })->name('citas.create');
+
+Route::post('/dashboard', [CitasController::class, 'store'])->name('citas.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
