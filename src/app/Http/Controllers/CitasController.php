@@ -90,8 +90,13 @@ class CitasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    //public function destroy(string $id)
+    public function destroy(Citas $cita)
     {
         //
+        $cita->delete();
+
+        return redirect()->route('dashboard')
+                         ->with('success', 'Cita eliminada correctamente.');
     }
 }
