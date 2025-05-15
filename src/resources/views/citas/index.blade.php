@@ -52,13 +52,13 @@
                                                         <td class="border border-gray-300 px-4 py-2 w-1/3 truncate whitespace-nowrap">{{ $cita->fecha ?? 'Sin determinar' }}</td>
                                                         <td class="border border-gray-300 px-4 py-2 w-1/3 truncate whitespace-nowrap">{{ $cita->hora ?? 'Sin determinar' }}</td>
                                                         <td class="border border-gray-300 px-4 py-2 w-1/3 truncate whitespace-nowrap">{{ $cita->duracion ?? 'Sin determinar' }}</td>
-                                                        @if(auth()->user()->role === 'taller')
+                                                        @if(auth()->user()->role === 'taller' || 'cliente')
                                                         <td class="border border-gray-300 px-4 py-2 w-1/6 text-center">
                                                             <div class="flex justify-center items-center gap-1">
                                                                 <a href="{{ route('citas.show', $cita) }}" class="btn btn-sm btn-outline-primary" title="{{ __('Ver') }}">
                                                                     <i class="bi bi-eye-fill"></i>
                                                                 </a>
-
+                                                        @if(auth()->user()->role === 'taller')
                                                                 <a href="{{ route('citas.edit', $cita) }}" class="btn btn-sm btn-outline-success" title="{{ __('Editar') }}">
                                                                     <i class="bi bi-pencil-fill"></i>
                                                                 </a>
@@ -72,6 +72,7 @@
                                                                         <i class="bi bi-trash-fill"></i>
                                                                     </button>
                                                                 </form>
+                                                                @endif
                                                             </div>
                                                         </td>
                                                         @endif
