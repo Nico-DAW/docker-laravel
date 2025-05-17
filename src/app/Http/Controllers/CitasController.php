@@ -55,9 +55,8 @@ class CitasController extends Controller
             'marca' => $request->marca,
             'modelo' => $request->modelo,
             'matricula' => $request->matricula,
-            'fecha'=> null,
-            'hora'=> null,
-            'duracion'=> null,
+            'fecha'=> $request->fecha,
+            'hora'=> $request->hora,
         ]);
 
         return redirect()->route('dashboard');

@@ -4,11 +4,11 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ "Bienvenido ". auth()->user()->name}}
             </h2>
-            @if (auth()->check() && auth()->user()->role === 'cliente')
+
             <a href="{{ route('citas.create') }}" class="btn btn-outline-primary px-2 py-1 rounded-md">
                     {{ __('Nueva cita') }}
             </a>
-            @endif
+
         </div>
     </x-slot>
 
