@@ -18,10 +18,17 @@ Route::get('/citas/show/{cita}', function (Citas $cita) {
     return view('citas.show', compact('cita'));
 })->name('citas.show');
 
-Route::get('/citas/edit', function () {
-    return view('citas.edit');
+Route::get('/citas/edit/{cita}', function (Citas $cita) {
+    return view('citas.edit', compact('cita'));
 })->name('citas.edit');
 
+/*
+Route::put('/dashboard/{cita}', function (Citas $cita) {
+    return view('dashboard');
+})->name('citas.update');
+*/
+
+Route::put('/dashboard/{cita}', [CitasController::class, 'update'])->name('citas.update');
 
 Route::post('/dashboard', [CitasController::class, 'store'])->name('citas.store');
 
